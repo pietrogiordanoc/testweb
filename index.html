@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tu Marca — Landing Page Moderna</title>
-  <meta name="description" content="Landing page moderna y responsiva para presentar tu producto o servicio y captar leads." />
-  <meta property="og:title" content="Tu Marca — Landing Page" />
-  <meta property="og:description" content="Landing page moderna y responsiva para presentar tu producto o servicio y captar leads." />
+  <title>Cursos de Trading — Aprende a operar con método</title>
+  <meta name="description" content="Landing page para promocionar cursos de trading: temario, instructor, fechas, precios y registro. Enfocada en educación financiera, no es asesoría de inversión." />
+  <meta property="og:title" content="Cursos de Trading — Aprende a operar con método" />
+  <meta property="og:description" content="Formaciones prácticas para desarrollar un plan de trading disciplinado. Incluye temario, testimonios y registro." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.png" />
   <link rel="icon" href="/favicon.ico" />
@@ -16,9 +16,9 @@
       --bg-soft: #0f1630;
       --text: #e6e8ef;
       --muted: #aab1c3;
-      --brand: #7c5cff;
-      --brand-2: #5ce1e6;
-      --accent: #22c55e;
+      --brand: #16a34a; /* verde disciplina */
+      --brand-2: #22d3ee; /* cian confianza */
+      --accent: #f59e0b; /* dorado */
       --danger: #ef4444;
       --border: #1e2a4a;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -33,16 +33,16 @@
     }
     *{ box-sizing: border-box; }
     html{ scroll-behavior:smooth; }
-    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,.25), transparent 60%), radial-gradient(800px 600px at 0% 20%, rgba(92,225,230,.15), transparent 60%), var(--bg); }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.2), transparent 60%), radial-gradient(800px 600px at 0% 20%, rgba(22,163,74,.18), transparent 60%), var(--bg); }
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .container{ width:100%; max-width: var(--container); margin:0 auto; padding: 0 20px; }
-    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius: calc(var(--radius) - 6px); border:1px solid var(--border); background:linear-gradient(180deg, rgba(124,92,255,.15), rgba(124,92,255,.05)); color: var(--text); font-weight:600; cursor:pointer; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; box-shadow: var(--shadow); }
+    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius: calc(var(--radius) - 6px); border:1px solid var(--border); background:linear-gradient(180deg, rgba(34,211,238,.15), rgba(22,163,74,.08)); color: var(--text); font-weight:600; cursor:pointer; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; box-shadow: var(--shadow); }
     .btn:hover{ transform: translateY(-1px); }
-    .btn.primary{ background: linear-gradient(180deg, var(--brand), #603ce8); border-color: transparent; color:white; }
+    .btn.primary{ background: linear-gradient(180deg, var(--brand), #0e7a37); border-color: transparent; color:white; }
     .btn.ghost{ background: transparent; box-shadow: none; }
     .badge{ display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .6rem; border-radius: 999px; border:1px solid var(--border); background: var(--bg-soft); color: var(--muted); font-size:.8rem; }
-    .chip{ display:inline-block; padding:.4rem .7rem; background: var(--bg-soft); border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); }
+    .chip{ display:inline-block; padding:.35rem .65rem; background: var(--bg-soft); border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); }
     header{ position: sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: linear-gradient(0deg, rgba(11,16,32,.4), rgba(11,16,32,.65)); border-bottom:1px solid rgba(255,255,255,.06); }
     .nav{ display:flex; justify-content:space-between; align-items:center; height:68px; }
     .brand{ display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.3px; }
@@ -51,70 +51,67 @@
     .hide-mobile{ display:none; }
     .menu-btn{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background: var(--bg-soft); }
     @media(min-width:900px){ .hide-mobile{ display:flex; } .menu-btn{ display:none; } }
-
     .hero{ position:relative; padding: 80px 0 40px; }
     .hero h1{ font-size: clamp(2rem, 3.6vw, 3.4rem); line-height:1.08; margin:.5rem 0 1rem; }
-    .hero p{ font-size: clamp(1rem, 1.2vw, 1.2rem); color: var(--muted); max-width: 720px; }
+    .hero p{ font-size: clamp(1rem, 1.2vw, 1.2rem); color: var(--muted); max-width: 760px; }
     .cta{ display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.3rem; }
     .hero-card{ margin-top: 40px; padding: 22px; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid var(--border); display:grid; gap:18px; grid-template-columns: 1fr; }
     @media(min-width:900px){ .hero-card{ grid-template-columns: 1.2fr .8fr; align-items:center; } }
-
     .kpis{ display:grid; grid-template-columns: repeat(2,1fr); gap:14px; }
     .kpi{ padding:16px; border-radius:14px; border:1px solid var(--border); background: var(--bg-soft); }
     .kpi h3{ margin:0; font-size:1.8rem; }
     .kpi p{ margin:.2rem 0 0; color: var(--muted); font-size:.9rem; }
-
     .section{ padding: 64px 0; }
     .section h2{ font-size: clamp(1.4rem, 2.2vw, 2.2rem); margin:0 0 10px; }
     .section p{ color: var(--muted); }
-
     .features{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
     .card{ padding:18px; border:1px solid var(--border); background: var(--bg-soft); border-radius: var(--radius); box-shadow: var(--shadow); }
     .card h3{ margin:.2rem 0 .4rem; font-size:1.1rem; }
-    .card p{ margin:0; font-size:.95rem; color: var(--muted); }
-
+    .card p{ margin:0; font-size:1rem; color: var(--muted); }
     .grid-2{ display:grid; grid-template-columns: 1fr; gap:18px; }
     @media(min-width:900px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
-
     .pricing{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-    .price-card{ position:relative; padding:22px; border:1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(92,225,230,.06), rgba(124,92,255,.04)); }
+    .price-card{ position:relative; padding:22px; border:1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(22,163,74,.08), rgba(34,211,238,.06)); }
     .price{ font-weight:800; font-size:2rem; margin:.2rem 0; }
     .list{ margin: 12px 0 16px; padding:0; list-style:none; }
     .list li{ display:flex; align-items:start; gap:.6rem; margin:.5rem 0; color:var(--muted); }
-
     .testimonials{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
     .quote{ border:1px solid var(--border); background: var(--bg-soft); padding:16px; border-radius: var(--radius); font-size:.98rem; }
     .quote footer{ margin-top: 10px; color: var(--muted); font-size:.9rem; }
-
     form{ display:grid; gap:12px; }
     .field{ display:grid; gap:6px; }
-    input, textarea{ width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--bg); color: var(--text); }
-    input:focus, textarea:focus{ outline:2px solid var(--brand); box-shadow: var(--shadow); }
+    input, textarea, select{ width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--bg); color: var(--text); }
+    input:focus, textarea:focus, select:focus{ outline:2px solid var(--brand); box-shadow: var(--shadow); }
     .error{ color: var(--danger); font-size:.9rem; display:none; }
-
-    footer{ border-top:1px solid var(--border); padding:32px 0; color:var(--muted); }
-
+    footer{ border-top:1px solid var(--border); padding:32px 0; color: var(--muted); }
     .mobile-drawer{ position:fixed; inset:0; background: rgba(0,0,0,.4); display:none; }
     .drawer-panel{ position:absolute; top:0; right:0; width:min(86%, 360px); height:100%; background:var(--bg); border-left:1px solid var(--border); padding:18px; }
     .drawer-panel ul{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
-
     .skip-link{ position:absolute; left:-9999px; }
     .skip-link:focus{ left: 12px; top: 12px; background: var(--brand); color:#fff; padding:8px 12px; border-radius:8px; z-index:100; }
+    .disclaimer{ font-size:.9rem; color: var(--muted); border:1px dashed var(--border); padding:12px; border-radius:12px; background: rgba(239,68,68,.05); }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Curso de Trading desde Cero",
+    "description": "Formación práctica para crear un plan de trading, gestión del riesgo y psicología del trading.",
+    "provider": {"@type": "Organization", "name": "Tu Academia"}
+  }
+  </script>
 </head>
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <header>
     <div class="container nav" role="navigation" aria-label="principal">
-      <a class="brand" href="#">
-        <div class="logo" aria-hidden="true"></div>
-        <span>Tu Marca</span>
-      </a>
+      <a class="brand" href="#"><div class="logo" aria-hidden="true"></div><span>Tu Academia</span></a>
       <nav class="hide-mobile" aria-label="menú superior">
         <ul>
-          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#temario">Temario</a></li>
+          <li><a href="#instructor">Instructor</a></li>
           <li><a href="#precios">Precios</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -124,76 +121,72 @@
 
   <main id="contenido">
     <section class="hero container">
-      <span class="badge">Nuevo · Listo para lanzar</span>
-      <h1>Una landing page elegante para convertir visitas en clientes</h1>
-      <p>Presenta tu producto, capta leads y valida tu idea con una página rápida, accesible y fácil de editar. Sin dependencias externas.</p>
+      <span class="badge">Nueva edición · Plazas limitadas</span>
+      <h1>Curso de Trading práctico: método, gestión de riesgo y disciplina</h1>
+      <p>Aprende a construir un <strong>plan de trading</strong> paso a paso, identificar setups con probabilidad, gestionar el riesgo y registrar tus operaciones. <em>Formación educativa, no asesoría de inversión.</em></p>
       <div class="cta">
-        <a class="btn primary" href="#precios">Empezar ahora</a>
-        <a class="btn ghost" href="#caracteristicas">Ver características</a>
+        <a class="btn primary" href="#precios">Reserva tu plaza</a>
+        <a class="btn ghost" href="#temario">Ver temario</a>
       </div>
-
       <div class="hero-card">
         <div>
           <div class="kpis">
-            <div class="kpi"><h3>+99</h3><p>Puntuación Lighthouse</p></div>
-            <div class="kpi"><h3>~1s</h3><p>Tiempo de carga</p></div>
-            <div class="kpi"><h3>A11y</h3><p>Buenas prácticas accesibles</p></div>
-            <div class="kpi"><h3>SEO</h3><p>Metatags y OG listos</p></div>
+            <div class="kpi"><h3>+1200</h3><p>Alumnos formados</p></div>
+            <div class="kpi"><h3>8 semanas</h3><p>Duración del programa</p></div>
+            <div class="kpi"><h3>100% online</h3><p>Clases en vivo + grabadas</p></div>
+            <div class="kpi"><h3>Soporte</h3><p>Foro privado y sesiones Q&A</p></div>
           </div>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1526470303-6e93c1f0232b?q=80&w=1200&auto=format&fit=crop" alt="Mockup de dashboard" />
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Gráfico financiero en pantalla" />
         </div>
       </div>
     </section>
 
-    <section id="caracteristicas" class="section">
+    <section id="temario" class="section">
       <div class="container">
-        <h2>Características clave</h2>
-        <p>Todo lo que necesitas para lanzar en horas, no semanas.</p>
+        <h2>Temario resumido</h2>
+        <p>Orientado a la práctica, con tareas y revisión.</p>
         <div class="features">
-          <article class="card">
-            <h3>Diseño responsive</h3>
-            <p>Se ve perfecto en móvil, tablet y escritorio con una malla fluida.</p>
-          </article>
-          <article class="card">
-            <h3>Rápida y ligera</h3>
-            <p>Sin frameworks: HTML, CSS y un toque de JS optimizado.</p>
-          </article>
-          <article class="card">
-            <h3>Accesible</h3>
-            <p>Etiquetas semánticas, navegación por teclado y contrastes correctos.</p>
-          </article>
-          <article class="card">
-            <h3>Fácil de personalizar</h3>
-            <p>Colores y radios via <code>:root</code>, componentes reutilizables.</p>
-          </article>
+          <article class="card"><h3>Fundamentos</h3><p>Velas, soportes, resistencias, tendencias y volumen.</p></article>
+          <article class="card"><h3>Estrategias</h3><p>Breakouts, pullbacks, reversión a la media y gestión del trade.</p></article>
+          <article class="card"><h3>Riesgo</h3><p>Posicionamiento, stop loss, R:R, diario de trading y métricas.</p></article>
+          <article class="card"><h3>Psicología</h3><p>Sesgos, disciplina, plan escrito y control emocional.</p></article>
+          <article class="card"><h3>Herramientas</h3><p>Plataformas, alertas, checklists, backtesting básico.</p></article>
+          <article class="card"><h3>Mercados</h3><p>Acciones, índices, crypto y FX (enfoque educativo).</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section id="instructor" class="section">
       <div class="container grid-2">
         <div>
-          <h2>Construida para generar confianza</h2>
-          <p>Incluye secciones de valor, evidencia social y llamadas a la acción claras para reducir la fricción y mejorar la conversión.</p>
+          <h2>Tu instructor</h2>
+          <p>Más de 7 años operando y formando a traders. Metodología enfocada en <strong>gestión del riesgo</strong>, bitácora y toma de decisiones basada en datos. Transparencia y realismo: no hay fórmulas mágicas.</p>
           <ul class="list">
-            <li>✔ Secciones de beneficios bien jerarquizadas</li>
-            <li>✔ Testimonios con nombres y cargos</li>
-            <li>✔ CTAs visibles y persistentes</li>
+            <li>✔ Sesiones en vivo con casos reales</li>
+            <li>✔ Corrección de tareas y feedback</li>
+            <li>✔ Comunidad privada para dudas</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Integración de newsletter</h3>
-          <p>Conecta tu herramienta (Mailchimp, Brevo, ConvertKit) pegando su script o endpoint.</p>
-          <div style="height:10px"></div>
-          <form id="newsletter">
+          <h3>Próxima edición</h3>
+          <form id="reserva">
+            <div class="field">
+              <label for="edicion">Fecha</label>
+              <select id="edicion" required>
+                <option value="">Selecciona</option>
+                <option>Septiembre 2025 (online)</option>
+                <option>Octubre 2025 (online)</option>
+              </select>
+            </div>
             <div class="field">
               <label for="email">Email</label>
               <input id="email" type="email" placeholder="tu@correo.com" required />
-              <span class="error" id="emailError">Por favor, introduce un email válido.</span>
+              <span class="error" id="emailError">Introduce un email válido.</span>
             </div>
-            <button class="btn" type="submit">Suscribirme</button>
+            <button class="btn primary" type="submit">Quiero reservar</button>
+            <p class="disclaimer">Contenido educativo. No es asesoría financiera ni promesa de rentabilidad. Operar en mercados implica riesgo de pérdida.</p>
           </form>
         </div>
       </div>
@@ -201,41 +194,41 @@
 
     <section id="precios" class="section">
       <div class="container">
-        <h2>Precios simples</h2>
-        <p>Empieza gratis y escala cuando lo necesites.</p>
+        <h2>Planes y precios</h2>
+        <p>Elige el plan que mejor encaje con tu objetivo.</p>
         <div class="pricing">
           <article class="price-card">
             <span class="chip">Starter</span>
-            <div class="price">€0</div>
-            <p>Ideal para validar.</p>
+            <div class="price">€99</div>
+            <p>Introducción esencial (grabado).</p>
             <ul class="list">
-              <li>✔ 1 proyecto</li>
-              <li>✔ 100 suscriptores</li>
-              <li>✔ Soporte por email</li>
+              <li>✔ 6 horas de video</li>
+              <li>✔ Plantillas de plan y diario</li>
+              <li>✔ Actualizaciones trimestrales</li>
             </ul>
-            <button class="btn">Elegir Starter</button>
+            <button class="btn">Empezar</button>
           </article>
           <article class="price-card" aria-label="plan popular">
             <span class="chip">Pro</span>
-            <div class="price">€19/mes</div>
-            <p>Para crecer con tranquilidad.</p>
+            <div class="price">€349</div>
+            <p>Programa completo (8 semanas).</p>
             <ul class="list">
-              <li>✔ Proyectos ilimitados</li>
-              <li>✔ 10k suscriptores</li>
-              <li>✔ Integraciones</li>
+              <li>✔ Clases en vivo + grabadas</li>
+              <li>✔ Revisión de tareas</li>
+              <li>✔ Comunidad y Q&A</li>
             </ul>
-            <button class="btn primary">Elegir Pro</button>
+            <button class="btn primary">Quiero el Pro</button>
           </article>
           <article class="price-card">
-            <span class="chip">Empresa</span>
+            <span class="chip">Mentoría</span>
             <div class="price">A medida</div>
-            <p>Soporte dedicado y SLAs.</p>
+            <p>Sesiones 1:1 para objetivos específicos.</p>
             <ul class="list">
-              <li>✔ Onboarding personalizado</li>
-              <li>✔ SSO y roles</li>
-              <li>✔ Soporte 24/7</li>
+              <li>✔ Plan personalizado</li>
+              <li>✔ Seguimiento semanal</li>
+              <li>✔ Plaza limitada</li>
             </ul>
-            <button class="btn">Contactar ventas</button>
+            <button class="btn">Solicitar llamada</button>
           </article>
         </div>
       </div>
@@ -243,11 +236,37 @@
 
     <section id="testimonios" class="section">
       <div class="container">
-        <h2>Lo que dicen nuestros clientes</h2>
+        <h2>Opiniones de alumnos</h2>
         <div class="testimonials">
-          <blockquote class="quote">“En una tarde teníamos la web lista y empezamos a captar leads.”<footer>— Ana G., Fundadora</footer></blockquote>
-          <blockquote class="quote">“Rápida y clara. Subimos la conversión un 23%.”<footer>— Luis M., Marketing</footer></blockquote>
-          <blockquote class="quote">“El código es limpio y fácil de mantener.”<footer>— Carla R., Frontend</footer></blockquote>
+          <blockquote class="quote">“Aprendí a dejar de improvisar. Ahora sigo mi plan y mido resultados.”<footer>— Ana G., Alumna Pro</footer></blockquote>
+          <blockquote class="quote">“La parte de gestión del riesgo me cambió el enfoque por completo.”<footer>— Luis M., Trader retail</footer></blockquote>
+          <blockquote class="quote">“Contenido honesto y práctico. Nada de promesas raras.”<footer>— Carla R., Alumna</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>Preguntas frecuentes</h2>
+          <ul class="list">
+            <li>✔ ¿Necesito experiencia? — No, empezamos desde fundamentos.</li>
+            <li>✔ ¿Garantías? — 7 días para probar (Starter y Pro).</li>
+            <li>✔ ¿Acceso? — De por vida a materiales y futuras actualizaciones del plan.</li>
+            <li>✔ ¿Mercados? — Orientado a conceptos aplicables a varios mercados. Educación, no señales.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Recibe el temario completo</h3>
+          <form id="newsletter">
+            <div class="field">
+              <label for="nlemail">Email</label>
+              <input id="nlemail" type="email" placeholder="tu@correo.com" required />
+              <span class="error" id="nlemailError">Email no válido.</span>
+            </div>
+            <button class="btn" type="submit">Enviar temario</button>
+            <p class="disclaimer">Al registrarte aceptas recibir emails informativos del curso. Puedes darte de baja en cualquier momento.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -255,12 +274,12 @@
     <section id="contacto" class="section">
       <div class="container grid-2">
         <div>
-          <h2>¿Hablamos?</h2>
-          <p>Cuéntanos sobre tu proyecto y te responderemos en 24–48h.</p>
+          <h2>¿Dudas? Hablemos</h2>
+          <p>Cuéntanos tu experiencia y objetivo y te recomendaremos el plan ideal.</p>
           <ul class="list">
-            <li>✔ Integración con tu dominio</li>
-            <li>✔ Despliegue en Vercel/Netlify</li>
-            <li>✔ SEO básico incluido</li>
+            <li>✔ Respuesta en 24–48h</li>
+            <li>✔ Sin spam</li>
+            <li>✔ Recursos de arranque</li>
           </ul>
         </div>
         <div class="card">
@@ -290,7 +309,7 @@
     <div class="container" role="contentinfo">
       <div style="display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;">
         <div class="logo" aria-hidden="true"></div>
-        <span>© <span id="year"></span> Tu Marca. Todos los derechos reservados.</span>
+        <span>© <span id="year"></span> Tu Academia — Educación financiera. No es asesoría de inversión.</span>
       </div>
     </div>
   </footer>
@@ -303,9 +322,10 @@
         <button class="menu-btn" aria-label="Cerrar menú" id="closeMenu">✕</button>
       </div>
       <ul>
-        <li><a href="#caracteristicas" class="drawer-link">Características</a></li>
+        <li><a href="#temario" class="drawer-link">Temario</a></li>
+        <li><a href="#instructor" class="drawer-link">Instructor</a></li>
         <li><a href="#precios" class="drawer-link">Precios</a></li>
-        <li><a href="#testimonios" class="drawer-link">Testimonios</a></li>
+        <li><a href="#faq" class="drawer-link">FAQ</a></li>
         <li><a href="#contacto" class="drawer-link">Contacto</a></li>
       </ul>
     </div>
@@ -324,21 +344,32 @@
     closeBtn?.addEventListener('click', ()=>{ drawer.style.display='none'; });
     drawerLinks.forEach(l=> l.addEventListener('click', ()=>{ drawer.style.display='none'; }));
 
-    // Validación básica Newsletter
-    document.getElementById('newsletter')?.addEventListener('submit', (e)=>{
+    // Validación Reserva
+    document.getElementById('reserva')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const email = document.getElementById('email');
+      const edicion = document.getElementById('edicion');
       const err = document.getElementById('emailError');
-      if(!email.checkValidity()){
-        err.style.display='block';
-        email.focus();
-        return;
-      }
-      err.style.display='none';
-      alert('¡Gracias! Te hemos suscrito.');
+      let ok = true;
+      if(!email.checkValidity()){ err.style.display='block'; ok=false; } else { err.style.display='none'; }
+      if(!edicion.value){ ok=false; }
+      if(!ok){ return; }
+      alert('✅ ¡Gracias! Hemos registrado tu interés. Te contactaremos por email.');
     });
 
-    // Validación básica Contacto
+    // Newsletter
+    document.getElementById('newsletter')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('nlemail');
+      const err = document.getElementById('nlemailError');
+      if(!email.checkValidity()){
+        err.style.display='block'; email.focus(); return;
+      }
+      err.style.display='none';
+      alert('📩 Temario enviado a tu correo (demo).');
+    });
+
+    // Contacto
     document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const correo = document.getElementById('correo');
@@ -350,7 +381,7 @@
       required.forEach(id=>{ const el = document.getElementById(id); if(!el.value.trim()) ok=false; });
       if(!ok){ document.getElementById('formError').style.display='block'; return; }
       document.getElementById('formError').style.display='none';
-      alert('¡Enviado! Nos pondremos en contacto contigo.');
+      alert('✅ Mensaje enviado (demo).');
     });
   </script>
 </body>
