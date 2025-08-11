@@ -4,118 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cursos de Trading — Aprende a operar con método</title>
-  <meta name="description" content="Landing page para promocionar cursos de trading: temario, instructor, fechas, precios y registro. Enfocada en educación financiera, no es asesoría de inversión." />
+  <meta name="description" content="Landing page para promocionar cursos de trading: blog, instructor, precios y registro. Educación financiera — no asesoría de inversión." />
   <meta property="og:title" content="Cursos de Trading — Aprende a operar con método" />
-  <meta property="og:description" content="Formaciones prácticas para desarrollar un plan de trading disciplinado. Incluye temario, testimonios y registro." />
+  <meta property="og:description" content="Formaciones prácticas para desarrollar un plan de trading disciplinado. Incluye blog, testimonios y registro." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.png" />
   <link rel="icon" href="/favicon.ico" />
   <style>
-    :root{
-      --bg: #0b1020;
-      --bg-soft: #0f1630;
-      --text: #e6e8ef;
-      --muted: #aab1c3;
-      --brand: #16a34a; /* verde disciplina */
-      --brand-2: #22d3ee; /* cian confianza */
-      --accent: #f59e0b; /* dorado */
-      --danger: #ef4444;
-      --border: #1e2a4a;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
-      --radius-lg: 24px;
-      --container: 1200px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --bg-soft:#f6f7fb; --text:#0b1020; --muted:#4b5563; --border:#e5e7eb; }
-      body{ background: var(--bg); }
-      .glass{ backdrop-filter: blur(10px); background: rgba(255,255,255,.6); }
-    }
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior:smooth; }
-    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.2), transparent 60%), radial-gradient(800px 600px at 0% 20%, rgba(22,163,74,.18), transparent 60%), var(--bg); }
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
-    .container{ width:100%; max-width: var(--container); margin:0 auto; padding: 0 20px; }
-    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius: calc(var(--radius) - 6px); border:1px solid var(--border); background:linear-gradient(180deg, rgba(34,211,238,.15), rgba(22,163,74,.08)); color: var(--text); font-weight:600; cursor:pointer; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; box-shadow: var(--shadow); }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.primary{ background: linear-gradient(180deg, var(--brand), #0e7a37); border-color: transparent; color:white; }
-    .btn.ghost{ background: transparent; box-shadow: none; }
-    .badge{ display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .6rem; border-radius: 999px; border:1px solid var(--border); background: var(--bg-soft); color: var(--muted); font-size:.8rem; }
-    .chip{ display:inline-block; padding:.35rem .65rem; background: var(--bg-soft); border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); }
-    header{ position: sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: linear-gradient(0deg, rgba(11,16,32,.4), rgba(11,16,32,.65)); border-bottom:1px solid rgba(255,255,255,.06); }
-    .nav{ display:flex; justify-content:space-between; align-items:center; height:68px; }
-    .brand{ display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.3px; }
-    .logo{ width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
-    nav ul{ list-style:none; display:flex; gap:1.2rem; padding:0; margin:0; align-items:center; }
-    .hide-mobile{ display:none; }
-    .menu-btn{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background: var(--bg-soft); }
-    @media(min-width:900px){ .hide-mobile{ display:flex; } .menu-btn{ display:none; } }
-    .hero{ position:relative; padding: 80px 0 40px; }
-    .hero h1{ font-size: clamp(2rem, 3.6vw, 3.4rem); line-height:1.08; margin:.5rem 0 1rem; }
-    .hero p{ font-size: clamp(1rem, 1.2vw, 1.2rem); color: var(--muted); max-width: 760px; }
-    .cta{ display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.3rem; }
-    .hero-card{ margin-top: 40px; padding: 22px; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid var(--border); display:grid; gap:18px; grid-template-columns: 1fr; }
-    @media(min-width:900px){ .hero-card{ grid-template-columns: 1.2fr .8fr; align-items:center; } }
-    .kpis{ display:grid; grid-template-columns: repeat(2,1fr); gap:14px; }
-    .kpi{ padding:16px; border-radius:14px; border:1px solid var(--border); background: var(--bg-soft); }
-    .kpi h3{ margin:0; font-size:1.8rem; }
-    .kpi p{ margin:.2rem 0 0; color: var(--muted); font-size:.9rem; }
-    .section{ padding: 64px 0; }
-    .section h2{ font-size: clamp(1.4rem, 2.2vw, 2.2rem); margin:0 0 10px; }
-    .section p{ color: var(--muted); }
-    .features{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .card{ padding:18px; border:1px solid var(--border); background: var(--bg-soft); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .card h3{ margin:.2rem 0 .4rem; font-size:1.1rem; }
-    .card p{ margin:0; font-size:1rem; color: var(--muted); }
-    .grid-2{ display:grid; grid-template-columns: 1fr; gap:18px; }
-    @media(min-width:900px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
-    .pricing{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
-    .price-card{ position:relative; padding:22px; border:1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(22,163,74,.08), rgba(34,211,238,.06)); }
-    .price{ font-weight:800; font-size:2rem; margin:.2rem 0; }
-    .list{ margin: 12px 0 16px; padding:0; list-style:none; }
-    .list li{ display:flex; align-items:start; gap:.6rem; margin:.5rem 0; color:var(--muted); }
-    .testimonials{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .quote{ border:1px solid var(--border); background: var(--bg-soft); padding:16px; border-radius: var(--radius); font-size:.98rem; }
-    .quote footer{ margin-top: 10px; color: var(--muted); font-size:.9rem; }
-    form{ display:grid; gap:12px; }
-    .field{ display:grid; gap:6px; }
-    input, textarea, select{ width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--bg); color: var(--text); }
-    input:focus, textarea:focus, select:focus{ outline:2px solid var(--brand); box-shadow: var(--shadow); }
-    .error{ color: var(--danger); font-size:.9rem; display:none; }
-    footer{ border-top:1px solid var(--border); padding:32px 0; color: var(--muted); }
-    .mobile-drawer{ position:fixed; inset:0; background: rgba(0,0,0,.4); display:none; }
-    .drawer-panel{ position:absolute; top:0; right:0; width:min(86%, 360px); height:100%; background:var(--bg); border-left:1px solid var(--border); padding:18px; }
-    .drawer-panel ul{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
-    .skip-link{ position:absolute; left:-9999px; }
-    .skip-link:focus{ left: 12px; top: 12px; background: var(--brand); color:#fff; padding:8px 12px; border-radius:8px; z-index:100; }
-    .disclaimer{ font-size:.9rem; color: var(--muted); border:1px dashed var(--border); padding:12px; border-radius:12px; background: rgba(239,68,68,.05); }
+    :root{ --bg:#0b1020; --bg-soft:#0f1630; --text:#e6e8ef; --muted:#aab1c3; --brand:#16a34a; --brand-2:#22d3ee; --danger:#ef4444; --border:#1e2a4a; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:16px; --radius-lg:24px; --container:1200px; }
+    @media (prefers-color-scheme: light){ :root{ --bg:#ffffff; --bg-soft:#f6f7fb; --text:#0b1020; --muted:#4b5563; --border:#e5e7eb; } body{ background:var(--bg);} }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;color:var(--text);background:radial-gradient(1200px 800px at 80% -10%, rgba(34,211,238,.2), transparent 60%), radial-gradient(800px 600px at 0% 20%, rgba(22,163,74,.18), transparent 60%), var(--bg);} a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg, rgba(34,211,238,.15), rgba(22,163,74,.08));color:var(--text);font-weight:600;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease;background-blend-mode:soft-light;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)} .btn.primary{background:linear-gradient(180deg, var(--brand), #0e7a37);border-color:transparent;color:#fff}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:linear-gradient(0deg, rgba(11,16,32,.4), rgba(11,16,32,.65));border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;justify-content:space-between;align-items:center;height:68px}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.3px}
+    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg, var(--brand), var(--brand-2))}
+    nav ul{list-style:none;display:flex;gap:1.2rem;margin:0;padding:0;align-items:center}
+    .menu-btn{display:none}
+    .hero{padding:80px 0 40px}
+    .hero h1{font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.08;margin:.5rem 0 1rem}
+    .hero p{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--muted);max-width:760px}
+    .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
+    .hero-card{margin-top:40px;padding:22px;border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));border:1px solid var(--border);display:grid;gap:18px;grid-template-columns:1fr}
+    @media(min-width:900px){.hero-card{grid-template-columns:1.2fr .8fr;align-items:center}}
+    .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .kpi{padding:16px;border-radius:14px;border:1px solid var(--border);background:var(--bg-soft)}
+    .kpi h3{margin:0;font-size:1.8rem}
+    .kpi p{margin:.2rem 0 0;color:var(--muted);font-size:.9rem}
+    .section{padding:64px 0} .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .card{padding:18px;border:1px solid var(--border);background:var(--bg-soft);border-radius:16px;box-shadow:var(--shadow)}
+    .price-card{padding:22px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(180deg, rgba(22,163,74,.08), rgba(34,211,238,.06))}
+    .price{font-weight:800;font-size:2rem;margin:.2rem 0}
+    .disclaimer{font-size:.9rem;color:var(--muted);border:1px dashed var(--border);padding:12px;border-radius:12px;background:rgba(239,68,68,.05)}
+    footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted)}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "Curso de Trading desde Cero",
-    "description": "Formación práctica para crear un plan de trading, gestión del riesgo y psicología del trading.",
-    "provider": {"@type": "Organization", "name": "Tu Academia"}
-  }
-  </script>
 </head>
 <body>
-  <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <header>
-    <div class="container nav" role="navigation" aria-label="principal">
+    <div class="container nav">
       <a class="brand" href="#"><div class="logo" aria-hidden="true"></div><span>Tu Academia</span></a>
-      <nav class="hide-mobile" aria-label="menú superior">
-        <ul>
-          <li><a href="#temario">Temario</a></li>
-          <li><a href="#instructor">Instructor</a></li>
-          <li><a href="#precios">Precios</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-      <button class="menu-btn" aria-label="Abrir menú" id="openMenu">≡</button>
+      <nav><ul>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#instructor">Instructor</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul></nav>
     </div>
   </header>
 
@@ -123,17 +60,17 @@
     <section class="hero container">
       <span class="badge">Nueva edición · Plazas limitadas</span>
       <h1>Curso de Trading práctico: método, gestión de riesgo y disciplina</h1>
-      <p>Aprende a construir un <strong>plan de trading</strong> paso a paso, identificar setups con probabilidad, gestionar el riesgo y registrar tus operaciones. <em>Formación educativa, no asesoría de inversión.</em></p>
+      <p>Aprende a construir un <strong>plan de trading</strong>, identificar setups con probabilidad, gestionar el riesgo y registrar tus operaciones. <em>Formación educativa, no asesoría de inversión.</em></p>
       <div class="cta">
         <a class="btn primary" href="#precios">Reserva tu plaza</a>
-        <a class="btn ghost" href="#temario">Ver temario</a>
+        <a class="btn" href="#blog">Ver artículos</a>
       </div>
       <div class="hero-card">
         <div>
           <div class="kpis">
-            <div class="kpi"><h3>+1200</h3><p>Alumnos formados</p></div>
-            <div class="kpi"><h3>8 semanas</h3><p>Duración del programa</p></div>
-            <div class="kpi"><h3>100% online</h3><p>Clases en vivo + grabadas</p></div>
+            <div class="kpi"><h3>+6700</h3><p>Alumnos formados</p></div>
+            <div class="kpi"><h3>Video</h3><p>Bajo demanda</p></div>
+            <div class="kpi"><h3>100% online</h3><p>Video bajo demanda</p></div>
             <div class="kpi"><h3>Soporte</h3><p>Foro privado y sesiones Q&A</p></div>
           </div>
         </div>
@@ -143,50 +80,93 @@
       </div>
     </section>
 
-    <section id="temario" class="section">
+    <section id="cursos" class="section">
       <div class="container">
-        <h2>Temario resumido</h2>
-        <p>Orientado a la práctica, con tareas y revisión.</p>
+        <h2>Nuestros cursos</h2>
+        <p>Formaciones prácticas para avanzar por niveles. Compra segura en Gumroad.</p>
         <div class="features">
-          <article class="card"><h3>Fundamentos</h3><p>Velas, soportes, resistencias, tendencias y volumen.</p></article>
-          <article class="card"><h3>Estrategias</h3><p>Breakouts, pullbacks, reversión a la media y gestión del trade.</p></article>
-          <article class="card"><h3>Riesgo</h3><p>Posicionamiento, stop loss, R:R, diario de trading y métricas.</p></article>
-          <article class="card"><h3>Psicología</h3><p>Sesgos, disciplina, plan escrito y control emocional.</p></article>
-          <article class="card"><h3>Herramientas</h3><p>Plataformas, alertas, checklists, backtesting básico.</p></article>
-          <article class="card"><h3>Mercados</h3><p>Acciones, índices, crypto y FX (enfoque educativo).</p></article>
+          <article class="card">
+            <h3>Curso de TradingView — Esencial</h3>
+            <p>Aprende análisis técnico, indicadores y configuración desde cero.</p>
+            <div class="price">US$24.99</div>
+            <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://cursademy.gumroad.com/l/TradingViewCursoEsencialParaTraders">Ver información</a>
+          </article>
+          <article class="card">
+            <h3>Curso de Trading Prime Elite Profesional</h3>
+            <p>Domina FTMO, MetaTrader, TradingView, Forex, Nasdaq y estrategias institucionales.</p>
+            <div class="price">US$24.99</div>
+            <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://cursademy.gumroad.com/l/PrimeEliteProfesional">Ver información</a>
+          </article>
+          <article class="card">
+            <h3>Curso de Velas Japonesas y Acción del Precio</h3>
+            <p>Estrategias de trading profesional para Forex y otros mercados.</p>
+            <div class="price">US$24.99</div>
+            <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://cursademy.gumroad.com/l/velasjaponesas">Ver información</a>
+          </article>
+          <article class="card">
+            <h3>Curso de Trading Master Pro Académico</h3>
+            <p>Formación en Forex, MetaTrader, TradingView y estrategias avanzadas.</p>
+            <div class="price">US$24.99</div>
+            <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://cursademy.gumroad.com/l/uvmwl">Ver información</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section">
+      <div class="container">
+        <h2>Blog / Temario</h2>
+        <p>Artículos con imágenes y ejemplos prácticos. Cada post es una subpágina independiente.</p>
+        <div class="features">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop" alt="TradingView básico" style="border-radius:12px;margin-bottom:10px;" />
+            <h3>Guía de TradingView para principiantes</h3>
+            <p>Configura gráficos, indicadores esenciales y listas de seguimiento.</p>
+            <a class="btn" href="blog/tradingview-guia.html">Leer artículo</a>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Estrategias de entrada" style="border-radius:12px;margin-bottom:10px;" />
+            <h3>Setups: breakouts y pullbacks</h3>
+            <p>Identifica contextos y confirma entradas con riesgo controlado.</p>
+            <a class="btn" href="blog/setups-breakout-pullback.html">Leer artículo</a>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1200&auto=format&fit=crop" alt="Gestión del riesgo" style="border-radius:12px;margin-bottom:10px;" />
+            <h3>Gestión del riesgo y tamaño de posición</h3>
+            <p>R:R, stop loss, drawdown y métricas clave.</p>
+            <a class="btn" href="blog/gestion-riesgo.html">Leer artículo</a>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1501527459-040165f7b8d7?q=80&w=1200&auto=format&fit=crop" alt="Psicología del trading" style="border-radius:12px;margin-bottom:10px;" />
+            <h3>Psicotrading: disciplina y plan escrito</h3>
+            <p>Evita sesgos y mantén la ejecución consistente.</p>
+            <a class="btn" href="blog/psicotrading-disciplina.html">Leer artículo</a>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="instructor" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2>Tu instructor</h2>
-          <p>Más de 7 años operando y formando a traders. Metodología enfocada en <strong>gestión del riesgo</strong>, bitácora y toma de decisiones basada en datos. Transparencia y realismo: no hay fórmulas mágicas.</p>
-          <ul class="list">
-            <li>✔ Sesiones en vivo con casos reales</li>
-            <li>✔ Corrección de tareas y feedback</li>
-            <li>✔ Comunidad privada para dudas</li>
-          </ul>
+      <div class="container" style="display:grid;grid-template-columns:1fr;gap:18px">
+        <div class="card">
+          <h2>ConDineroLibre — Perfil empresarial</h2>
+          <p><strong>ConDineroLibre</strong> brinda educación y asesoría en inversiones y trading. Nuestro objetivo es que puedas trabajar por tu cuenta desde casa con bases sólidas.</p>
+          <p>Enseñamos cómo operar con cuentas de empresas de capitales, priorizando <strong>gestión del riesgo</strong> y metodología. Nos enfocamos en educación y acompañamiento realista para volverte un trader consistente.</p>
+          <blockquote class="disclaimer">“Aprende y trabaja en este gran negocio que te aportará bienestar, independencia y libertad financiera.”</blockquote>
+          <p>Filosofía de psicotrading: <em>No uses el dinero de tus compromisos para invertir</em>. Tras años de estudio, errores y mentores, desarrollamos una ruta clara basada en análisis técnico y registro de métricas.</p>
         </div>
         <div class="card">
-          <h3>Próxima edición</h3>
-          <form id="reserva">
-            <div class="field">
-              <label for="edicion">Fecha</label>
-              <select id="edicion" required>
-                <option value="">Selecciona</option>
-                <option>Septiembre 2025 (online)</option>
-                <option>Octubre 2025 (online)</option>
-              </select>
-            </div>
+          <h3>Más información</h3>
+          <form id="reserva" action="https://formsubmit.co/tuwebexperto@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Solicitud de información - Cursos de Trading" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" placeholder="tu@correo.com" required />
+              <input id="email" name="email" type="email" placeholder="tu@correo.com" required />
               <span class="error" id="emailError">Introduce un email válido.</span>
             </div>
-            <button class="btn primary" type="submit">Quiero reservar</button>
-            <p class="disclaimer">Contenido educativo. No es asesoría financiera ni promesa de rentabilidad. Operar en mercados implica riesgo de pérdida.</p>
+            <button class="btn primary" type="submit">Quiero información</button>
+            <p class="disclaimer">Contenido educativo. No es asesoría financiera ni promesa de rentabilidad.</p>
           </form>
         </div>
       </div>
@@ -196,72 +176,33 @@
       <div class="container">
         <h2>Planes y precios</h2>
         <p>Elige el plan que mejor encaje con tu objetivo.</p>
-        <div class="pricing">
-          <article class="price-card">
-            <span class="chip">Starter</span>
-            <div class="price">€99</div>
-            <p>Introducción esencial (grabado).</p>
-            <ul class="list">
-              <li>✔ 6 horas de video</li>
-              <li>✔ Plantillas de plan y diario</li>
-              <li>✔ Actualizaciones trimestrales</li>
-            </ul>
-            <button class="btn">Empezar</button>
-          </article>
-          <article class="price-card" aria-label="plan popular">
-            <span class="chip">Pro</span>
-            <div class="price">€349</div>
-            <p>Programa completo (8 semanas).</p>
-            <ul class="list">
-              <li>✔ Clases en vivo + grabadas</li>
-              <li>✔ Revisión de tareas</li>
-              <li>✔ Comunidad y Q&A</li>
-            </ul>
-            <button class="btn primary">Quiero el Pro</button>
-          </article>
-          <article class="price-card">
-            <span class="chip">Mentoría</span>
-            <div class="price">A medida</div>
-            <p>Sesiones 1:1 para objetivos específicos.</p>
-            <ul class="list">
-              <li>✔ Plan personalizado</li>
-              <li>✔ Seguimiento semanal</li>
-              <li>✔ Plaza limitada</li>
-            </ul>
-            <button class="btn">Solicitar llamada</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonios" class="section">
-      <div class="container">
-        <h2>Opiniones de alumnos</h2>
-        <div class="testimonials">
-          <blockquote class="quote">“Aprendí a dejar de improvisar. Ahora sigo mi plan y mido resultados.”<footer>— Ana G., Alumna Pro</footer></blockquote>
-          <blockquote class="quote">“La parte de gestión del riesgo me cambió el enfoque por completo.”<footer>— Luis M., Trader retail</footer></blockquote>
-          <blockquote class="quote">“Contenido honesto y práctico. Nada de promesas raras.”<footer>— Carla R., Alumna</footer></blockquote>
+        <div class="features">
+          <article class="price-card"><span class="chip">Starter</span><div class="price">€99</div><p>Introducción esencial (grabado).</p></article>
+          <article class="price-card"><span class="chip">Pro</span><div class="price">€349</div><p>Programa completo (video bajo demanda).</p></article>
+          <article class="price-card"><span class="chip">Mentoría</span><div class="price">A medida</div><p>Sesiones 1:1 para objetivos específicos.</p></article>
         </div>
       </div>
     </section>
 
     <section id="faq" class="section">
-      <div class="container grid-2">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
         <div>
           <h2>Preguntas frecuentes</h2>
           <ul class="list">
-            <li>✔ ¿Necesito experiencia? — No, empezamos desde fundamentos.</li>
-            <li>✔ ¿Garantías? — 7 días para probar (Starter y Pro).</li>
-            <li>✔ ¿Acceso? — De por vida a materiales y futuras actualizaciones del plan.</li>
-            <li>✔ ¿Mercados? — Orientado a conceptos aplicables a varios mercados. Educación, no señales.</li>
+            <li>✔ ¿Necesito experiencia? No, empezamos desde fundamentos.</li>
+            <li>✔ ¿Garantías? 7 días para probar (Starter y Pro).</li>
+            <li>✔ ¿Acceso? De por vida a materiales y futuras actualizaciones.</li>
+            <li>✔ ¿Mercados? Conceptos aplicables a varios mercados. Educación, no señales.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Recibe el temario completo</h3>
-          <form id="newsletter">
+          <form id="newsletter" action="https://formsubmit.co/tuwebexperto@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Solicitud de temario - Cursos de Trading" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="field">
               <label for="nlemail">Email</label>
-              <input id="nlemail" type="email" placeholder="tu@correo.com" required />
+              <input id="nlemail" name="email" type="email" placeholder="tu@correo.com" required />
               <span class="error" id="nlemailError">Email no válido.</span>
             </div>
             <button class="btn" type="submit">Enviar temario</button>
@@ -272,7 +213,7 @@
     </section>
 
     <section id="contacto" class="section">
-      <div class="container grid-2">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
         <div>
           <h2>¿Dudas? Hablemos</h2>
           <p>Cuéntanos tu experiencia y objetivo y te recomendaremos el plan ideal.</p>
@@ -283,7 +224,9 @@
           </ul>
         </div>
         <div class="card">
-          <form id="contactForm" novalidate>
+          <form id="contactForm" action="https://formsubmit.co/tuwebexperto@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Contacto landing — Cursos de Trading" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="field">
               <label for="nombre">Nombre</label>
               <input id="nombre" name="nombre" required />
@@ -306,83 +249,13 @@
   </main>
 
   <footer>
-    <div class="container" role="contentinfo">
-      <div style="display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;">
-        <div class="logo" aria-hidden="true"></div>
-        <span>© <span id="year"></span> Tu Academia — Educación financiera. No es asesoría de inversión.</span>
-      </div>
+    <div class="container">
+      © <span id="year"></span> Tu Academia — Educación financiera. No es asesoría de inversión.
     </div>
   </footer>
 
-  <!-- Drawer móvil -->
-  <div class="mobile-drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h3 id="menuTitle" style="margin:0;">Menú</h3>
-        <button class="menu-btn" aria-label="Cerrar menú" id="closeMenu">✕</button>
-      </div>
-      <ul>
-        <li><a href="#temario" class="drawer-link">Temario</a></li>
-        <li><a href="#instructor" class="drawer-link">Instructor</a></li>
-        <li><a href="#precios" class="drawer-link">Precios</a></li>
-        <li><a href="#faq" class="drawer-link">FAQ</a></li>
-        <li><a href="#contacto" class="drawer-link">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
-
   <script>
-    // Año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Drawer móvil
-    const drawer = document.getElementById('drawer');
-    const openBtn = document.getElementById('openMenu');
-    const closeBtn = document.getElementById('closeMenu');
-    const drawerLinks = document.querySelectorAll('.drawer-link');
-    openBtn?.addEventListener('click', ()=>{ drawer.style.display='block'; });
-    closeBtn?.addEventListener('click', ()=>{ drawer.style.display='none'; });
-    drawerLinks.forEach(l=> l.addEventListener('click', ()=>{ drawer.style.display='none'; }));
-
-    // Validación Reserva
-    document.getElementById('reserva')?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const email = document.getElementById('email');
-      const edicion = document.getElementById('edicion');
-      const err = document.getElementById('emailError');
-      let ok = true;
-      if(!email.checkValidity()){ err.style.display='block'; ok=false; } else { err.style.display='none'; }
-      if(!edicion.value){ ok=false; }
-      if(!ok){ return; }
-      alert('✅ ¡Gracias! Hemos registrado tu interés. Te contactaremos por email.');
-    });
-
-    // Newsletter
-    document.getElementById('newsletter')?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const email = document.getElementById('nlemail');
-      const err = document.getElementById('nlemailError');
-      if(!email.checkValidity()){
-        err.style.display='block'; email.focus(); return;
-      }
-      err.style.display='none';
-      alert('📩 Temario enviado a tu correo (demo).');
-    });
-
-    // Contacto
-    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const correo = document.getElementById('correo');
-      const correoError = document.getElementById('correoError');
-      const required = ['nombre','mensaje'];
-      let ok = true;
-      if(!correo.checkValidity()){ correoError.style.display='block'; ok=false; }
-      else { correoError.style.display='none'; }
-      required.forEach(id=>{ const el = document.getElementById(id); if(!el.value.trim()) ok=false; });
-      if(!ok){ document.getElementById('formError').style.display='block'; return; }
-      document.getElementById('formError').style.display='none';
-      alert('✅ Mensaje enviado (demo).');
-    });
   </script>
 </body>
 </html>
