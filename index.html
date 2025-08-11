@@ -11,15 +11,347 @@
   <meta property="og:image" content="/og-image.png" />
   <link rel="icon" href="/favicon.ico" />
   <style>
-    /* CSS reducido para el ejemplo */
-    body { font-family: sans-serif; margin: 0; padding: 0; background: #0b1020; color: #fff; }
-    h1 { font-size: 2rem; }
+    :root{
+      --bg: #0b1020;
+      --bg-soft: #0f1630;
+      --text: #e6e8ef;
+      --muted: #aab1c3;
+      --brand: #7c5cff;
+      --brand-2: #5ce1e6;
+      --accent: #22c55e;
+      --danger: #ef4444;
+      --border: #1e2a4a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --container: 1200px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --bg-soft:#f6f7fb; --text:#0b1020; --muted:#4b5563; --border:#e5e7eb; }
+      body{ background: var(--bg); }
+      .glass{ backdrop-filter: blur(10px); background: rgba(255,255,255,.6); }
+    }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,.25), transparent 60%), radial-gradient(800px 600px at 0% 20%, rgba(92,225,230,.15), transparent 60%), var(--bg); }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .container{ width:100%; max-width: var(--container); margin:0 auto; padding: 0 20px; }
+    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius: calc(var(--radius) - 6px); border:1px solid var(--border); background:linear-gradient(180deg, rgba(124,92,255,.15), rgba(124,92,255,.05)); color: var(--text); font-weight:600; cursor:pointer; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; box-shadow: var(--shadow); }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{ background: linear-gradient(180deg, var(--brand), #603ce8); border-color: transparent; color:white; }
+    .btn.ghost{ background: transparent; box-shadow: none; }
+    .badge{ display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .6rem; border-radius: 999px; border:1px solid var(--border); background: var(--bg-soft); color: var(--muted); font-size:.8rem; }
+    .chip{ display:inline-block; padding:.4rem .7rem; background: var(--bg-soft); border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); }
+    header{ position: sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: linear-gradient(0deg, rgba(11,16,32,.4), rgba(11,16,32,.65)); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav{ display:flex; justify-content:space-between; align-items:center; height:68px; }
+    .brand{ display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.3px; }
+    .logo{ width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+    nav ul{ list-style:none; display:flex; gap:1.2rem; padding:0; margin:0; align-items:center; }
+    .hide-mobile{ display:none; }
+    .menu-btn{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background: var(--bg-soft); }
+    @media(min-width:900px){ .hide-mobile{ display:flex; } .menu-btn{ display:none; } }
+
+    .hero{ position:relative; padding: 80px 0 40px; }
+    .hero h1{ font-size: clamp(2rem, 3.6vw, 3.4rem); line-height:1.08; margin:.5rem 0 1rem; }
+    .hero p{ font-size: clamp(1rem, 1.2vw, 1.2rem); color: var(--muted); max-width: 720px; }
+    .cta{ display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.3rem; }
+    .hero-card{ margin-top: 40px; padding: 22px; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid var(--border); display:grid; gap:18px; grid-template-columns: 1fr; }
+    @media(min-width:900px){ .hero-card{ grid-template-columns: 1.2fr .8fr; align-items:center; } }
+
+    .kpis{ display:grid; grid-template-columns: repeat(2,1fr); gap:14px; }
+    .kpi{ padding:16px; border-radius:14px; border:1px solid var(--border); background: var(--bg-soft); }
+    .kpi h3{ margin:0; font-size:1.8rem; }
+    .kpi p{ margin:.2rem 0 0; color: var(--muted); font-size:.9rem; }
+
+    .section{ padding: 64px 0; }
+    .section h2{ font-size: clamp(1.4rem, 2.2vw, 2.2rem); margin:0 0 10px; }
+    .section p{ color: var(--muted); }
+
+    .features{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card{ padding:18px; border:1px solid var(--border); background: var(--bg-soft); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card h3{ margin:.2rem 0 .4rem; font-size:1.1rem; }
+    .card p{ margin:0; font-size:.95rem; color: var(--muted); }
+
+    .grid-2{ display:grid; grid-template-columns: 1fr; gap:18px; }
+    @media(min-width:900px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
+
+    .pricing{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .price-card{ position:relative; padding:22px; border:1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(92,225,230,.06), rgba(124,92,255,.04)); }
+    .price{ font-weight:800; font-size:2rem; margin:.2rem 0; }
+    .list{ margin: 12px 0 16px; padding:0; list-style:none; }
+    .list li{ display:flex; align-items:start; gap:.6rem; margin:.5rem 0; color:var(--muted); }
+
+    .testimonials{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .quote{ border:1px solid var(--border); background: var(--bg-soft); padding:16px; border-radius: var(--radius); font-size:.98rem; }
+    .quote footer{ margin-top: 10px; color: var(--muted); font-size:.9rem; }
+
+    form{ display:grid; gap:12px; }
+    .field{ display:grid; gap:6px; }
+    input, textarea{ width:100%; padding:12px 14px; border-radius: 12px; border:1px solid var(--border); background: var(--bg); color: var(--text); }
+    input:focus, textarea:focus{ outline:2px solid var(--brand); box-shadow: var(--shadow); }
+    .error{ color: var(--danger); font-size:.9rem; display:none; }
+
+    footer{ border-top:1px solid var(--border); padding:32px 0; color:var(--muted); }
+
+    .mobile-drawer{ position:fixed; inset:0; background: rgba(0,0,0,.4); display:none; }
+    .drawer-panel{ position:absolute; top:0; right:0; width:min(86%, 360px); height:100%; background:var(--bg); border-left:1px solid var(--border); padding:18px; }
+    .drawer-panel ul{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+
+    .skip-link{ position:absolute; left:-9999px; }
+    .skip-link:focus{ left: 12px; top: 12px; background: var(--brand); color:#fff; padding:8px 12px; border-radius:8px; z-index:100; }
   </style>
 </head>
 <body>
-  <header><h1>Tu Marca</h1></header>
-  <main><p>Landing page lista para personalizar.</p></main>
-  <footer><p>© <span id="year"></span> Tu Marca</p></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="principal">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Tu Marca</span>
+      </a>
+      <nav class="hide-mobile" aria-label="menú superior">
+        <ul>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="Abrir menú" id="openMenu">≡</button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero container">
+      <span class="badge">Nuevo · Listo para lanzar</span>
+      <h1>Una landing page elegante para convertir visitas en clientes</h1>
+      <p>Presenta tu producto, capta leads y valida tu idea con una página rápida, accesible y fácil de editar. Sin dependencias externas.</p>
+      <div class="cta">
+        <a class="btn primary" href="#precios">Empezar ahora</a>
+        <a class="btn ghost" href="#caracteristicas">Ver características</a>
+      </div>
+
+      <div class="hero-card">
+        <div>
+          <div class="kpis">
+            <div class="kpi"><h3>+99</h3><p>Puntuación Lighthouse</p></div>
+            <div class="kpi"><h3>~1s</h3><p>Tiempo de carga</p></div>
+            <div class="kpi"><h3>A11y</h3><p>Buenas prácticas accesibles</p></div>
+            <div class="kpi"><h3>SEO</h3><p>Metatags y OG listos</p></div>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1526470303-6e93c1f0232b?q=80&w=1200&auto=format&fit=crop" alt="Mockup de dashboard" />
+        </div>
+      </div>
+    </section>
+
+    <section id="caracteristicas" class="section">
+      <div class="container">
+        <h2>Características clave</h2>
+        <p>Todo lo que necesitas para lanzar en horas, no semanas.</p>
+        <div class="features">
+          <article class="card">
+            <h3>Diseño responsive</h3>
+            <p>Se ve perfecto en móvil, tablet y escritorio con una malla fluida.</p>
+          </article>
+          <article class="card">
+            <h3>Rápida y ligera</h3>
+            <p>Sin frameworks: HTML, CSS y un toque de JS optimizado.</p>
+          </article>
+          <article class="card">
+            <h3>Accesible</h3>
+            <p>Etiquetas semánticas, navegación por teclado y contrastes correctos.</p>
+          </article>
+          <article class="card">
+            <h3>Fácil de personalizar</h3>
+            <p>Colores y radios via <code>:root</code>, componentes reutilizables.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>Construida para generar confianza</h2>
+          <p>Incluye secciones de valor, evidencia social y llamadas a la acción claras para reducir la fricción y mejorar la conversión.</p>
+          <ul class="list">
+            <li>✔ Secciones de beneficios bien jerarquizadas</li>
+            <li>✔ Testimonios con nombres y cargos</li>
+            <li>✔ CTAs visibles y persistentes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Integración de newsletter</h3>
+          <p>Conecta tu herramienta (Mailchimp, Brevo, ConvertKit) pegando su script o endpoint.</p>
+          <div style="height:10px"></div>
+          <form id="newsletter">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="tu@correo.com" required />
+              <span class="error" id="emailError">Por favor, introduce un email válido.</span>
+            </div>
+            <button class="btn" type="submit">Suscribirme</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios" class="section">
+      <div class="container">
+        <h2>Precios simples</h2>
+        <p>Empieza gratis y escala cuando lo necesites.</p>
+        <div class="pricing">
+          <article class="price-card">
+            <span class="chip">Starter</span>
+            <div class="price">€0</div>
+            <p>Ideal para validar.</p>
+            <ul class="list">
+              <li>✔ 1 proyecto</li>
+              <li>✔ 100 suscriptores</li>
+              <li>✔ Soporte por email</li>
+            </ul>
+            <button class="btn">Elegir Starter</button>
+          </article>
+          <article class="price-card" aria-label="plan popular">
+            <span class="chip">Pro</span>
+            <div class="price">€19/mes</div>
+            <p>Para crecer con tranquilidad.</p>
+            <ul class="list">
+              <li>✔ Proyectos ilimitados</li>
+              <li>✔ 10k suscriptores</li>
+              <li>✔ Integraciones</li>
+            </ul>
+            <button class="btn primary">Elegir Pro</button>
+          </article>
+          <article class="price-card">
+            <span class="chip">Empresa</span>
+            <div class="price">A medida</div>
+            <p>Soporte dedicado y SLAs.</p>
+            <ul class="list">
+              <li>✔ Onboarding personalizado</li>
+              <li>✔ SSO y roles</li>
+              <li>✔ Soporte 24/7</li>
+            </ul>
+            <button class="btn">Contactar ventas</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios" class="section">
+      <div class="container">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonials">
+          <blockquote class="quote">“En una tarde teníamos la web lista y empezamos a captar leads.”<footer>— Ana G., Fundadora</footer></blockquote>
+          <blockquote class="quote">“Rápida y clara. Subimos la conversión un 23%.”<footer>— Luis M., Marketing</footer></blockquote>
+          <blockquote class="quote">“El código es limpio y fácil de mantener.”<footer>— Carla R., Frontend</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>¿Hablamos?</h2>
+          <p>Cuéntanos sobre tu proyecto y te responderemos en 24–48h.</p>
+          <ul class="list">
+            <li>✔ Integración con tu dominio</li>
+            <li>✔ Despliegue en Vercel/Netlify</li>
+            <li>✔ SEO básico incluido</li>
+          </ul>
+        </div>
+        <div class="card">
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" required />
+            </div>
+            <div class="field">
+              <label for="correo">Correo</label>
+              <input id="correo" type="email" name="correo" required />
+              <span class="error" id="correoError">Introduce un correo válido.</span>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Enviar</button>
+            <p class="error" id="formError">Por favor, completa los campos requeridos.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" role="contentinfo">
+      <div style="display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;">
+        <div class="logo" aria-hidden="true"></div>
+        <span>© <span id="year"></span> Tu Marca. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer móvil -->
+  <div class="mobile-drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 id="menuTitle" style="margin:0;">Menú</h3>
+        <button class="menu-btn" aria-label="Cerrar menú" id="closeMenu">✕</button>
+      </div>
+      <ul>
+        <li><a href="#caracteristicas" class="drawer-link">Características</a></li>
+        <li><a href="#precios" class="drawer-link">Precios</a></li>
+        <li><a href="#testimonios" class="drawer-link">Testimonios</a></li>
+        <li><a href="#contacto" class="drawer-link">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Drawer móvil
+    const drawer = document.getElementById('drawer');
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+    openBtn?.addEventListener('click', ()=>{ drawer.style.display='block'; });
+    closeBtn?.addEventListener('click', ()=>{ drawer.style.display='none'; });
+    drawerLinks.forEach(l=> l.addEventListener('click', ()=>{ drawer.style.display='none'; }));
+
+    // Validación básica Newsletter
+    document.getElementById('newsletter')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('email');
+      const err = document.getElementById('emailError');
+      if(!email.checkValidity()){
+        err.style.display='block';
+        email.focus();
+        return;
+      }
+      err.style.display='none';
+      alert('¡Gracias! Te hemos suscrito.');
+    });
+
+    // Validación básica Contacto
+    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const correo = document.getElementById('correo');
+      const correoError = document.getElementById('correoError');
+      const required = ['nombre','mensaje'];
+      let ok = true;
+      if(!correo.checkValidity()){ correoError.style.display='block'; ok=false; }
+      else { correoError.style.display='none'; }
+      required.forEach(id=>{ const el = document.getElementById(id); if(!el.value.trim()) ok=false; });
+      if(!ok){ document.getElementById('formError').style.display='block'; return; }
+      document.getElementById('formError').style.display='none';
+      alert('¡Enviado! Nos pondremos en contacto contigo.');
+    });
+  </script>
 </body>
 </html>
